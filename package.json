@@ -30,6 +30,6 @@
     "passport-oauth": "^1.0.0",
     "passport-openid": "^0.4.0",
     "path": "^0.12.7",
-    "pg": "^6.1.0"
+    "pg": "^6.1.6"
   }
 }
