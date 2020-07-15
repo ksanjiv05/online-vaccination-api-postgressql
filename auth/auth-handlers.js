@@ -1,22 +1,21 @@
 const jwt = require("jsonwebtoken");
-const user_account = require("../data/user_account");
 
 const jwtKey = "fsgdghjhmgnfdxdchfjghjkjbhvgcfdxszazdfgghjuk";
-const jwtExpirySeconds = 300;
+const jwtExpirySeconds = 900;
 
-// const users = {
-//   user1: "password1",
-//   user2: "password2",
-// };
+const users = {
+  ksanjiv0005: "$@tiy@0005",
+  vinay07: "vinay@07",
+};
 
 const signIn = async (req, res) => {
   // Get credentials from JSON body
   const { username, password } = req.body;
   console.log(username, "and ", password);
-  const result = await user_account.login(username, password);
-  console.log("return type ", result);
-  //if (!username || !password || users[username] !== password) {
-  if (!result) {
+  // const result = await user_account.login(username, password);
+  // console.log("return type ", result);
+  if (!username || !password || users[username] !== password) {
+    //if (!result) {
     return res.status(401).end();
   }
 
@@ -49,10 +48,6 @@ const welcome = (req, res) => {
 
   var payload;
   try {
-    // Parse the JWT string and store the result in `payload`.
-    // Note that we are passing the key in this method as well. This method will throw an error
-    // if the token is invalid (if it has expired according to the expiry time we set on sign in),
-    // or if the signature does not match
     payload = jwt.verify(token, jwtKey);
   } catch (e) {
     if (e instanceof jwt.JsonWebTokenError) {
