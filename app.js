@@ -11,7 +11,7 @@ app.use(cors());
 app.use(myParser.urlencoded({ extended: true }));
 app.use(myParser.json({ extended: true })); // need if you want to json data from request
 app.use(cookieParser());
-const port = process.env.Port || 3001;
+//const port = process.env.Port || 3001;
 
 app.use("/api", require("./routes/common.js"));
 
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 //   res.send(reg);
 // });
 
-app.listen(port, () => {
-  console.log(`the app listen at port ${port}`);
-});
-//app.listen(process.env.PORT || 3001);
+// app.listen(port, () => {
+//   console.log(`the app listen at port ${port}`);
+// });
+app.listen(process.env.PORT || 3001);
