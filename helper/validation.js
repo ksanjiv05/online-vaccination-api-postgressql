@@ -19,7 +19,7 @@ const validatioschema = {
       )
       .optional(),
     check("name").exists().withMessage("Name is required"),
-    check("username").isEmail().withMessage("Please enter valid email"),
+    //check("username").isEmail().withMessage("Please enter valid email"),
     // check("phone")
     //   .isMobilePhone()
     //   .isLength({ min: 10, max: 10 })

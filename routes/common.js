@@ -10,9 +10,14 @@ const {
   welcomex,
 } = require("../auth/auth-handlers");
 
+const user_contoller = require("../controller/user_controller");
+
 router.post("/signin", signIn);
 router.get("/welcome", welcome);
 router.post("/refresh", refresh);
 router.get("/welcomex", auth, welcomex);
+
+router.post("/adduser", validation.user, user_contoller.postUser);
+router.get("/getusers", user_contoller.getUsers);
 
 module.exports = router;
