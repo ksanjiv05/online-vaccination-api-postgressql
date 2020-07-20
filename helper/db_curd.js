@@ -8,7 +8,7 @@ module.exports.executeQuery = async (sqlquery) => {
     console.log(query);
     await query.on("end", () => {
       console.log("Query successfully executed ");
-      client.end();
+      //client.end();
       flag = true;
     });
     return flag;
@@ -29,7 +29,7 @@ module.exports.readQuery = async (sqlquery) => {
     });
     await query.on("end", () => {
       console.log("Query successfully executed ", result);
-      client.end();
+      //client.end();
     });
     return result;
   } catch (err) {
