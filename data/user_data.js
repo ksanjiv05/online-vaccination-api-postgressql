@@ -19,7 +19,6 @@ const UserTableInsert = async (name, email, pass, dob) => {
   const query = `INSERT INTO public.users(
           name,email,pass,varified,dob)
           VALUES ('${name}', '${email}', '${pass}', false, '${dob}')`;
-  //VALUES ('ksanjiv', 'kksanjiv0005@gmail.com', 'k$@tiy@0005', false, '20/02/1997');
   console.log(query);
   const status = await queryHelper.executeQuery(query);
   // console.log("status is ", status);
