@@ -6,7 +6,7 @@ const client = new Client({
   password: "0005",
   database: "online-vaccination",
 });
-
+client.connect();
 module.exports = {
   client,
 };

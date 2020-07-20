@@ -3,7 +3,7 @@ const { client } = require("../database/db_connection");
 module.exports.executeQuery = async (sqlquery) => {
   let flag = false;
   try {
-    client.connect();
+    //client.connect();
     const query = client.query(sqlquery);
     console.log(query);
     await query.on("end", () => {
@@ -13,7 +13,7 @@ module.exports.executeQuery = async (sqlquery) => {
     });
     return flag;
   } catch (err) {
-    console.error("Error in Query");
+    console.error("Error in Query", err);
     return flag;
   }
 };
@@ -21,14 +21,14 @@ module.exports.executeQuery = async (sqlquery) => {
 module.exports.readQuery = async (sqlquery) => {
   let result = [];
   try {
-    client.connect();
+    //client.connect();
     const query = client.query(sqlquery);
     await query.on("row", (row) => {
       console.log(row);
       result.push(row);
     });
     await query.on("end", () => {
-      console.log("Query successfully executed ", result);
+      console.log("Query successfully executed ");
       //client.end();
     });
     return result;
